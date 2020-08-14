@@ -1,9 +1,15 @@
 
-ADD_EXECUTABLE(CirclingTransform CirclingTransform.c)
+ADD_EXECUTABLE(CirclingTransform CirclingTransform.c "CirclingTransform.c")
+ADD_EXECUTABLE(CirclingBasic CirclingBasic.c "CirclingBasic.c")
+ADD_EXECUTABLE(PoseTransform PoseTransform.c "PoseTransform.c")
+
 TARGET_LINK_LIBRARIES(CirclingTransform UnrealLiveLinkCInterfaceAPI)
+TARGET_LINK_LIBRARIES(CirclingBasic UnrealLiveLinkCInterfaceAPI)
+TARGET_LINK_LIBRARIES(PoseTransform UnrealLiveLinkCInterfaceAPI)
 
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/../lib
 	${CMAKE_CURRENT_SOURCE_DIR}/../include
 	${CMAKE_CURRENT_SOURCE_DIR}/../src
 	${CMAKE_CURRENT_BINARY_DIR}/..)
 
+SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR}/)

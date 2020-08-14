@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.13)
 
 project(UnrealLiveLinkCInterfaceAPI VERSION 1.5.0 DESCRIPTION "Unreal Live Link C Interface")
 
-OPTION(BUILD_EXAMPLES "Build examples" OFF)
+OPTION(BUILD_EXAMPLES "Build examples" ON)
 
-add_library(${PROJECT_NAME} STATIC src/UnrealLiveLinkCInterfaceAPI.c)
+add_library(${PROJECT_NAME} STATIC src/UnrealLiveLinkCInterfaceAPI.c "examples/CirclingBasic.c" "examples/PoseTransform.c" "examples/CirclingTransform.c")
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     VERSION ${PROJECT_VERSION}

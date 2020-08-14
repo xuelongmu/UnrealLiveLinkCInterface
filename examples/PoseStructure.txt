@@ -1,0 +1,41 @@
+
+
+
+
+
+
+
+
+joints_3.0: Tuple[str, ...] = ('root',
+                               'lhipjoint', 'lfemur', 'ltibia', 'lfoot',
+                               'rhipjoint', 'rfemur', 'rtibia', 'rfoot',
+                               'lowerback', 'upperback', 'thorax',
+                               'lowerneck', 'upperneck', 'head',
+                               'lclavicle', 'lhumerus', 'lradius', 'lwrist',
+                               'rclavicle', 'rhumerus', 'rradius', 'rwrist')
+
+SkelTypeToKinematicChain[SkeletonType.CMU] = (
+    ChainSpec(parent='root', children=('lhipjoint', 'rhipjoint', 'lowerback',)),
+    ChainSpec(parent='lhipjoint', children=('lfemur',)),
+    ChainSpec(parent='lfemur', children=('ltibia',)),
+    ChainSpec(parent='ltibia', children=('lfoot',)),
+    ChainSpec(parent='lfoot', children=None),
+    ChainSpec(parent='rhipjoint', children=('rfemur',)),
+    ChainSpec(parent='rfemur', children=('rtibia',)),
+    ChainSpec(parent='rtibia', children=('rfoot',)),
+    ChainSpec(parent='rfoot', children=None),
+    ChainSpec(parent='lowerback', children=('upperback',)),
+    ChainSpec(parent='upperback', children=('thorax',)),
+    ChainSpec(parent='thorax', children=('lowerneck', 'lclavicle', 'rclavicle',)),
+    ChainSpec(parent='lowerneck', children=('upperneck',)),
+    ChainSpec(parent='upperneck', children=('head',)),
+    ChainSpec(parent='head', children=None),
+    ChainSpec(parent='lclavicle', children=('lhumerus',)),
+    ChainSpec(parent='lhumerus', children=('lradius',)),
+    ChainSpec(parent='lradius', children=('lwrist',)),
+    ChainSpec(parent='lwrist', children=None),
+    ChainSpec(parent='rclavicle', children=('rhumerus',)),
+    ChainSpec(parent='rhumerus', children=('rradius',)),
+    ChainSpec(parent='rradius', children=('rwrist',)),
+    ChainSpec(parent='rwrist', children=None)
+)
